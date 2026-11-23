@@ -509,10 +509,11 @@ export const TelegramPage: React.FC<TelegramPageProps> = ({
                   justifyContent: 'space-between',
                   gap: '12px',
                   flexWrap: 'wrap',
-                  padding: '14px 16px',
-                  borderRadius: '14px',
-                  background: 'var(--soft)',
-                  border: '1px solid color-mix(in srgb, var(--brand) 28%, var(--line))',
+                  padding: embedded ? '10px 0' : '14px 16px',
+                  borderRadius: embedded ? '0' : '14px',
+                  background: embedded ? 'transparent' : 'var(--soft)',
+                  border: embedded ? '0' : '1px solid color-mix(in srgb, var(--brand) 28%, var(--line))',
+                  borderBottom: embedded ? '1px solid var(--set-glass-divider, var(--line))' : undefined,
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -549,10 +550,14 @@ export const TelegramPage: React.FC<TelegramPageProps> = ({
                     cursor: toggling ? 'wait' : 'pointer',
                     fontSize: '13px',
                     fontWeight: 700,
-                    background: 'color-mix(in srgb, var(--surface) 40%, transparent)',
+                    background: embedded
+                      ? 'var(--set-glass-control, rgba(255,255,255,0.05))'
+                      : 'color-mix(in srgb, var(--surface) 40%, transparent)',
                     padding: '8px 12px',
                     borderRadius: '10px',
-                    border: '1px solid var(--line)',
+                    border: embedded
+                      ? '1px solid var(--set-glass-border, var(--line))'
+                      : '1px solid var(--line)',
                   }}
                 >
                   <input
@@ -648,10 +653,10 @@ export const TelegramPage: React.FC<TelegramPageProps> = ({
                 <div
                   style={{
                     marginTop: '6px',
-                    padding: '16px',
+                    padding: '14px 16px',
                     borderRadius: '14px',
-                    background: 'color-mix(in srgb, #0088cc 8%, var(--bg))',
-                    border: '1.5px solid color-mix(in srgb, #0088cc 35%, var(--line))',
+                    background: 'color-mix(in srgb, #0088cc 8%, transparent)',
+                    border: '1px solid color-mix(in srgb, #0088cc 32%, var(--set-glass-border, var(--line)))',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '10px',
@@ -789,10 +794,11 @@ export const TelegramPage: React.FC<TelegramPageProps> = ({
             <form
               onSubmit={handleSaveCustomProxy}
               style={{
-                padding: '12px 14px',
-                borderRadius: '12px',
-                background: 'var(--bg)',
-                border: '1px solid var(--line)',
+                padding: embedded ? '14px 0 4px' : '12px 14px',
+                borderRadius: embedded ? '0' : '12px',
+                background: embedded ? 'transparent' : 'var(--bg)',
+                border: embedded ? '0' : '1px solid var(--line)',
+                borderTop: embedded ? '1px solid var(--set-glass-divider, var(--line))' : undefined,
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '10px',
@@ -923,10 +929,11 @@ export const TelegramPage: React.FC<TelegramPageProps> = ({
               <div
                 key={item.label}
                 style={{
-                  padding: '10px 12px',
-                  borderRadius: '11px',
-                  background: 'var(--bg)',
-                  border: '1px solid var(--line)',
+                  padding: embedded ? '10px 4px' : '10px 12px',
+                  borderRadius: embedded ? '0' : '11px',
+                  background: embedded ? 'transparent' : 'var(--bg)',
+                  border: embedded ? '0' : '1px solid var(--line)',
+                  borderBottom: embedded ? '1px solid var(--set-glass-divider, var(--line))' : undefined,
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '3px',

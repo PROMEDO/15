@@ -645,7 +645,7 @@ export const SettingsPage: React.FC = () => {
                         style={{
                           borderColor: selected ? opt.accent : undefined,
                           background: selected
-                            ? `color-mix(in srgb, ${opt.accent} 11%, var(--surface))`
+                            ? `color-mix(in srgb, ${opt.accent} 13%, transparent)`
                             : undefined,
                         }}
                       >
@@ -876,13 +876,12 @@ export const SettingsPage: React.FC = () => {
 
                   <button
                     type="button"
-                    className="btn p s"
-                    style={{ fontWeight: 800 }}
+                    className="btn p s mp-set2-add-zone-btn"
                     onClick={() =>
                       setDeliveryZonesState((prev) => [...prev, { area: '', fee: 2000, cities: [] }])
                     }
                   >
-                    <Plus size={14} />
+                    <Plus size={16} />
                     <span>إضافة منطقة</span>
                   </button>
                 </div>
@@ -904,7 +903,7 @@ export const SettingsPage: React.FC = () => {
                             onClick={() => setDeliveryZonesState((prev) => prev.filter((_, i) => i !== idx))}
                             title="حذف المنطقة"
                           >
-                            <Trash2 size={13} />
+                            <Trash2 size={15} />
                             <span>حذف</span>
                           </button>
                         </div>
@@ -997,7 +996,7 @@ export const SettingsPage: React.FC = () => {
                                   }
                                   title="حذف الحي الفرعي"
                                 >
-                                  <Trash2 size={13} />
+                                  <Trash2 size={16} />
                                 </button>
                               </div>
                             ))}
@@ -1017,7 +1016,7 @@ export const SettingsPage: React.FC = () => {
                             )
                           }
                         >
-                          <Plus size={13} />
+                          <Plus size={16} />
                           <span>إضافة حي فرعي (اختياري)</span>
                         </button>
                       </div>
@@ -1109,8 +1108,8 @@ export const SettingsPage: React.FC = () => {
                       marginTop: '10px',
                       padding: '12px 14px',
                       borderRadius: '12px',
-                      background: 'color-mix(in srgb, #f15a29 10%, var(--surface))',
-                      border: '1px solid color-mix(in srgb, #f15a29 30%, var(--line))',
+                      background: 'color-mix(in srgb, #f15a29 10%, transparent)',
+                      border: '1px solid color-mix(in srgb, #f15a29 30%, var(--set-glass-border, var(--line)))',
                       fontSize: '12px',
                       fontWeight: 700,
                       color: 'var(--ink)',
@@ -1213,8 +1212,8 @@ export const SettingsPage: React.FC = () => {
                           width: '74px',
                           height: '74px',
                           borderRadius: '50%',
-                          border: '2px solid var(--line)',
-                          background: 'color-mix(in srgb, var(--bg) 52%, transparent)',
+                          border: '1px solid var(--set-glass-border, var(--line))',
+                          background: 'var(--set-glass-control, rgba(255, 255, 255, 0.05))',
                           overflow: 'hidden',
                           display: 'grid',
                           placeItems: 'center',
@@ -1300,8 +1299,8 @@ export const SettingsPage: React.FC = () => {
                         width: '100%',
                         height: '92px',
                         borderRadius: '12px',
-                        border: '1px solid color-mix(in srgb, var(--line) 70%, transparent)',
-                        background: 'color-mix(in srgb, var(--bg) 52%, transparent)',
+                        border: '1px solid var(--set-glass-border, var(--line))',
+                        background: 'var(--set-glass-control, rgba(255, 255, 255, 0.05))',
                         overflow: 'hidden',
                         display: 'grid',
                         placeItems: 'center',
@@ -1560,7 +1559,7 @@ export const SettingsPage: React.FC = () => {
                             fontSize: '12px',
                             fontWeight: 800,
                             color: 'var(--brand-ink, #34D399)',
-                            borderInlineEnd: '1px solid var(--line)',
+                            borderInlineEnd: '1px solid var(--set-glass-divider, var(--line))',
                             whiteSpace: 'nowrap',
                           }}
                         >
@@ -1570,6 +1569,7 @@ export const SettingsPage: React.FC = () => {
                       <input
                         type="text"
                         dir="ltr"
+                        className="mp-set2-slug-input"
                         aria-label={terms.isStore ? 'رابط المتجر المخصص' : 'رابط المنيو المخصص'}
                         value={slugDraft}
                         onChange={(e) => handleSlugTyping(e.target.value)}
@@ -1579,11 +1579,11 @@ export const SettingsPage: React.FC = () => {
                           background: 'transparent',
                           outline: 'none',
                           padding: '10px 12px',
-                          fontSize: '14px',
+                          fontSize: '14.5px',
                           fontWeight: 700,
                           color: 'var(--ink)',
                           flex: 1,
-                          minHeight: '42px',
+                          minHeight: '46px',
                           minWidth: 0,
                         }}
                       />
@@ -1594,7 +1594,7 @@ export const SettingsPage: React.FC = () => {
                             fontSize: '12px',
                             fontWeight: 800,
                             color: 'var(--brand-ink, #34D399)',
-                            borderInlineStart: '1px solid var(--line)',
+                            borderInlineStart: '1px solid var(--set-glass-divider, var(--line))',
                             whiteSpace: 'nowrap',
                           }}
                         >
